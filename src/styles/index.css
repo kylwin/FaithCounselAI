@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, calming pastel palette */
+    --background: 35 30% 96%;
+    --foreground: 240 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 25%;
+
+    /* Soft lavender as primary - darker for user messages */
+    --primary: 260 65% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Blush pink as secondary */
+    --secondary: 350 70% 85%;
+    --secondary-foreground: 240 10% 25%;
+
+    /* Warm beige muted tones */
+    --muted: 35 20% 92%;
+    --muted-foreground: 240 8% 50%;
+
+    /* Pale blue accent - darker for user messages */
+    --accent: 200 70% 65%;
+    --accent-foreground: 240 10% 25%;
+
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 260 60% 75%;
+
+    --radius: 1rem;
+
+    /* Gradients for depth */
+    --gradient-calm: linear-gradient(135deg, hsl(260 60% 75% / 0.1), hsl(200 60% 80% / 0.1));
+    --gradient-message-user: linear-gradient(135deg, hsl(260 60% 75%), hsl(260 65% 80%));
+    --gradient-message-ai: linear-gradient(135deg, hsl(0 0% 100%), hsl(35 30% 98%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(260 60% 75% / 0.1);
+    --shadow-glow: 0 0 20px hsl(260 60% 75% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Soft dark mode for evening use */
+    --background: 240 15% 12%;
+    --foreground: 35 30% 90%;
+
+    --card: 240 12% 15%;
+    --card-foreground: 35 30% 90%;
+
+    --popover: 240 12% 15%;
+    --popover-foreground: 35 30% 90%;
+
+    --primary: 260 55% 70%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 60% 75%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 8% 65%;
+
+    --accent: 200 55% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 22%;
+    --input: 240 10% 22%;
+    --ring: 260 55% 70%;
+
+    --gradient-calm: linear-gradient(135deg, hsl(260 55% 70% / 0.15), hsl(200 55% 70% / 0.15));
+    --gradient-message-user: linear-gradient(135deg, hsl(260 55% 65%), hsl(260 60% 70%));
+    --gradient-message-ai: linear-gradient(135deg, hsl(240 12% 18%), hsl(240 12% 20%));
+
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 20px hsl(260 55% 70% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
