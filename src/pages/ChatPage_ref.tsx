@@ -7,7 +7,7 @@ import { Sparkles, ArrowLeft } from "lucide-react";
 import type { Message, UserSettings } from "@/types";
 
 // Webhook URL for chat messages
-const CHAT_WEBHOOK_URL = "https://ici.zeabur.app/webhook/FCAgent";
+const CHAT_WEBHOOK_URL = "https://ici.zeabur.app/webhook/FCAgent2";
 
 export const ChatPage = () => {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ export const ChatPage = () => {
         console.log("✅ Response data:", data);
 
         // Extract content from response
-        let aiContent = "Peace be with you. I'm here for you.";
+        let aiContent = "愿你平安，我在这里陪伴你。";
 
         if (Array.isArray(data) && data.length > 0 && data[0].output) {
           aiContent = data[0].output;
@@ -102,7 +102,7 @@ export const ChatPage = () => {
         const fallbackMessage: Message = {
           id: "greeting",
           role: "assistant",
-          content: "Peace be with you. I'm here for you. How can I help you today?",
+          content: "愿你平安，我在这里陪伴你。有什么我可以帮助你的吗？",
           timestamp: new Date(),
         };
 
@@ -162,7 +162,7 @@ export const ChatPage = () => {
 
       // Extract content from response
       // API returns: [{ "output": "xxxxx" }]
-      let aiContent = "I'm here to help. Please tell me more.";
+      let aiContent = "我在这里帮助你。请告诉我更多。";
 
       if (Array.isArray(data) && data.length > 0 && data[0].output) {
         // Handle array format: [{ "output": "xxxxx" }]
@@ -197,7 +197,7 @@ export const ChatPage = () => {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: "I apologize, but I'm having trouble connecting right now. Please try again in a moment.",
+        content: "很抱歉，我现在连接不上。请稍后再试。",
         timestamp: new Date(),
       };
 
@@ -208,7 +208,7 @@ export const ChatPage = () => {
   };
 
   const handleBackToSetup = () => {
-    if (window.confirm("Are you sure you want to go back to setup? Your current conversation will be lost.")) {
+    if (window.confirm("你确定要返回设置吗？你当前的对话将丢失。")) {
       navigate("/");
     }
   };
@@ -228,16 +228,16 @@ export const ChatPage = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-xl font-semibold text-foreground">AI Chat Agent</h1>
+            <h1 className="text-xl font-semibold text-foreground">真道AI</h1>
             <p className="text-sm text-muted-foreground">
-              Chatting with {userSettings.username}
+            与 {userSettings.username} 正在寻求
             </p>
           </div>
         </div>
         <button
           onClick={handleBackToSetup}
           className="p-2 hover:bg-muted rounded-lg transition-colors"
-          title="Back to setup"
+          title="返回设置"
         >
           <ArrowLeft className="w-5 h-5 text-muted-foreground" />
         </button>
